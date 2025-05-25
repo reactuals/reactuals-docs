@@ -2,7 +2,7 @@ import React from "react";
 import { useScrollPosition } from "reactuals";
 import { DemoWrapper } from "./DemoWrapper";
 
-export const UseScrollPositionExample = () => {
+export const UseScrollDirectionExample = () => {
   const scrollY = useScrollPosition();
   const showButton = scrollY > 400;
 
