@@ -1,0 +1,44 @@
+# useClipboard()
+
+The `useClipboard` hook provides an easy way to copy text to the clipboard and track the copy status, with automatic status reset after 2 seconds.
+
+### Import
+
+```jsx
+import { useClipboard } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseClipboardExample } from "../demos/UseClipboardExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseClipboardExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React, { useState } from "react";
+import { useClipboard } from "reactuals";
+
+export const Component = () => {
+  const [text, setText] = useState("Hello, World!");
+  const [copy, copied] = useClipboard();
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Enter text to copy"
+      />
+      <button onClick={() => copy(text)}>
+        {copied ? "Copied!" : "Copy to Clipboard"}
+      </button>
+    </div>
+  );
+};
+```

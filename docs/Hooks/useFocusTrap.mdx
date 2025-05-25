@@ -1,0 +1,40 @@
+# useFocusTrap()
+
+The `useFocusTrap` hook traps keyboard focus within a specified DOM element, ensuring that tab navigation cycles between the first and last focusable elements (e.g., links, buttons, inputs) inside it. It's useful for creating accessible modals or dialogs.
+
+### Import
+
+```jsx
+import { useFocusTrap } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseFocusTrapExample } from "../demos/UseFocusTrapExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseFocusTrapExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React, { useRef } from "react";
+import { useFocusTrap } from "reactuals";
+
+export const Component = () => {
+  const modalRef = useRef(null);
+  useFocusTrap(modalRef);
+
+  return (
+    <div ref={modalRef}>
+      <h2>Modal Example</h2>
+      <button>Button 1</button>
+      <input type="text" placeholder="Input field" />
+      <a href="#">Link</a>
+      <button>Button 2</button>
+    </div>
+  );
+};
+```

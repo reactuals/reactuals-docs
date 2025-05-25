@@ -1,0 +1,41 @@
+# useLocalStorage()
+
+The `useLocalStorage` hook syncs a value with `localStorage`, allowing you to persist state across page reloads. It returns the stored value and a setter function to update it, automatically handling serialization and deserialization. This is useful for saving user preferences or form data.
+
+### Import
+
+```jsx
+import { useLocalStorage } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseLocalStorageExample } from "../demos/UseLocalStorageExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseLocalStorageExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React from "react";
+import { useLocalStorage } from "reactuals";
+
+export const Component = () => {
+  const [value, setValue] = useLocalStorage("example", "");
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Type something..."
+      />
+      <p>Stored Value: {value}</p>
+    </div>
+  );
+};
+```

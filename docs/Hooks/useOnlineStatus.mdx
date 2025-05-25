@@ -1,0 +1,35 @@
+# useOnlineStatus()
+
+The `useOnlineStatus` hook tracks the network connectivity status of the browser, returning a boolean indicating whether the user is online or offline. This is useful for displaying connection status indicators or handling offline scenarios in your application.
+
+### Import
+
+```jsx
+import { useOnlineStatus } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseOnlineStatusExample } from "../demos/UseOnlineStatusExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseOnlineStatusExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React from "react";
+import { useOnlineStatus } from "reactuals";
+
+export const Component = () => {
+  const online = useOnlineStatus();
+
+  return (
+    <div>
+      <p>Network Status: {online ? "Online" : "Offline"}</p>
+    </div>
+  );
+};
+```

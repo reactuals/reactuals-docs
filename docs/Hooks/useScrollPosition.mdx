@@ -1,0 +1,40 @@
+# useScrollPosition()
+
+The `useScrollPosition` hook returns the current vertical scroll position (`scrollY`) of the window, updating automatically as the user scrolls. It’s useful for monitoring scroll behavior, debugging scroll-based interactions, or creating UI elements that respond to scroll position, such as position indicators or scroll-triggered effects.
+
+### Import
+
+```jsx
+import { useScrollPosition } from "reactuals";
+```
+
+### Demo
+
+See the floating card in the right. ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯→
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseScrollPositionExample } from "../demos/UseScrollPositionExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseScrollPositionExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React from "react";
+import { useScrollPosition } from "reactuals";
+
+export const Component = () => {
+  const scrollY = useScrollPosition();
+
+  return (
+    <div>
+      <p>Scroll Position: {scrollY}px</p>
+      <div style={{ height: "200vh" }}>
+        <p>Scroll to see position updates.</p>
+      </div>
+    </div>
+  );
+};
+```

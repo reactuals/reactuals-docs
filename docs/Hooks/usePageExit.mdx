@@ -1,0 +1,43 @@
+# usePageExit()
+
+The `usePageExit` hook detects when the user's mouse leaves the page by moving toward the top edge of the browser window (e.g., toward the address bar or tabs). It triggers a provided callback function, making it useful for exit-intent popups or analytics tracking.
+
+### Import
+
+```jsx
+import { usePageExit } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UsePageExitExample } from "../demos/UsePageExitExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UsePageExitExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React, { useState } from "react";
+import { usePageExit } from "reactuals";
+
+export const Component = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  usePageExit(() => setShowPopup(true));
+
+  return (
+    <div>
+      <p>Move your mouse to the top of the page to trigger the exit intent.</p>
+      {showPopup && (
+        <div>
+          <p>Don't leave yet!</p>
+          <button onClick={() => setShowPopup(false)}>Close</button>
+        </div>
+      )}
+    </div>
+  );
+};
+```

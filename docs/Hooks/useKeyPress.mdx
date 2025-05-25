@@ -1,0 +1,40 @@
+# useKeyPress()
+
+The `useKeyPress` hook detects when a specific key is pressed on the keyboard and triggers a provided callback function, useful for implementing keyboard-driven interactions.
+
+### Import
+
+```jsx
+import { useKeyPress } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseKeyPressExample } from "../demos/UseKeyPressExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseKeyPressExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React, { useState } from "react";
+import { useKeyPress } from "reactuals";
+
+export const Component = () => {
+  const [pressCount, setPressCount] = useState(0);
+
+  useKeyPress("Enter", () => {
+    setPressCount((prev) => prev + 1);
+  });
+
+  return (
+    <div>
+      <p>Press the "Enter" key to increment the counter.</p>
+      <p>Enter Press Count: {pressCount}</p>
+    </div>
+  );
+};
+```

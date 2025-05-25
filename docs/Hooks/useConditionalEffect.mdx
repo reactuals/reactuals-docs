@@ -1,0 +1,61 @@
+# useConditionalEffect()
+
+The `useConditionalEffect` hook runs a `useEffect` only when a specified condition is true, providing fine-grained control over when side effects should execute.
+
+### Import
+
+```jsx
+import { useConditionalEffect } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseConditionalEffectExample } from "../demos/UseConditionalEffectExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseConditionalEffectExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React, { useState } from "react";
+import { useConditionalEffect } from "reactuals";
+
+export const Component = () => {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const [count, setCount] = useState(0);
+  const [logs, setLogs] = useState([]);
+
+  useConditionalEffect(
+    isEnabled,
+    () => {
+      const log = `Effect ran at ${new Date().toLocaleTimeString()}`;
+      setLogs((prev) => [...prev, log]);
+
+      return () => {
+        console.log("Cleanup function called");
+      };
+    },
+    [count]
+  );
+
+  return (
+    <div>
+      <button onClick={() => setIsEnabled(!isEnabled)}>
+        {isEnabled ? "Disable" : "Enable"} Effect
+      </button>
+      <button onClick={() => setCount((c) => c + 1)}>
+        Increment Count: {count}
+      </button>
+      <div>
+        <h4>Effect Logs:</h4>
+        {logs.map((log, i) => (
+          <p key={i}>{log}</p>
+        ))}
+      </div>
+    </div>
+  );
+};
+```

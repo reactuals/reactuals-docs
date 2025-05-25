@@ -1,0 +1,44 @@
+# usePrevious()
+
+The `usePrevious` hook returns the previous value of a variable, allowing you to track state changes. It’s great for simple scenarios like reverting user input in a search bar, tracking form changes, or debugging state transitions.
+
+### Import
+
+```jsx
+import { usePrevious } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UsePreviousExample } from "../demos/UsePreviousExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UsePreviousExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React, { useState } from "react";
+import { usePrevious } from "reactuals";
+
+export const Component = () => {
+  const [query, setQuery] = useState("");
+  const previousQuery = usePrevious(query);
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search..."
+      />
+      <p>Current Query: {query || "None"}</p>
+      <p>Previous Query: {previousQuery ?? "None"}</p>
+      <button onClick={() => setQuery(previousQuery ?? "")}>Undo</button>
+    </div>
+  );
+};
+```

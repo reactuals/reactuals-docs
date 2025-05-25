@@ -1,0 +1,44 @@
+# useOnClickOutside()
+
+The `useOnClickOutside` hook detects clicks outside a specified DOM element, triggering a provided callback function. It supports both mouse and touch events, making it ideal for closing modals, dropdowns, or popovers when clicking outside their boundaries.
+
+### Import
+
+```jsx
+import { useOnClickOutside } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseOnClickOutsideExample } from "../demos/UseOnClickOutsideExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseOnClickOutsideExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React, { useRef, useState } from "react";
+import { useOnClickOutside } from "reactuals";
+
+export const Component = () => {
+  const ref = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useOnClickOutside(ref, () => setIsOpen(false));
+
+  return (
+    <div>
+      <button onClick={() => setIsOpen(true)}>Open Dropdown</button>
+      {isOpen && (
+        <div ref={ref}>
+          <p>Dropdown Content</p>
+          <button>Action</button>
+        </div>
+      )}
+    </div>
+  );
+};
+```

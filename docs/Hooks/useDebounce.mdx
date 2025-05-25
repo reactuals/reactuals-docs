@@ -1,0 +1,43 @@
+# useDebounce()
+
+The `useDebounce` hook returns a debounced version of the input value that only updates after a specified delay, helping to optimize performance by reducing the frequency of expensive operations.
+
+### Import
+
+```jsx
+import { useDebounce } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseDebounceExample } from "../demos/UseDebounceExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseDebounceExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React, { useState } from "react";
+import { useDebounce } from "reactuals";
+
+export const Component = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Type to search..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <p>Current input: {searchTerm}</p>
+      <p>Debounced value: {debouncedSearchTerm}</p>
+    </div>
+  );
+};
+```

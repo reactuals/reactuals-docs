@@ -1,0 +1,45 @@
+# useMediaQuery()
+
+The `useMediaQuery` hook tracks the state of a CSS media query, returning a boolean indicating whether the query matches the current viewport or device state. This is useful for creating responsive UI components, such as dynamically switching layouts or styles based on screen size or other media features.
+
+### Import
+
+```jsx
+import { useMediaQuery } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseMediaQueryExample } from "../demos/UseMediaQueryExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseMediaQueryExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React from "react";
+import { useMediaQuery } from "reactuals";
+
+export const Component = () => {
+  const isLargeScreen = useMediaQuery("(min-width: 768px)");
+
+  return (
+    <div>
+      <p>Layout: {isLargeScreen ? "Grid" : "List"}</p>
+      <div
+        style={{
+          display: isLargeScreen ? "grid" : "flex",
+          flexDirection: "column",
+        }}
+      >
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+      </div>
+    </div>
+  );
+};
+```

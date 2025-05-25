@@ -1,0 +1,48 @@
+# useIsMounted()
+
+The `useIsMounted` hook provides a function that returns a boolean indicating whether the component is currently mounted. This is critical for preventing memory leaks in asynchronous operations, such as API calls, by ensuring state updates are only performed when the component is still mounted.
+
+### Import
+
+```jsx
+import { useIsMounted } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseIsMountedExample } from "../demos/UseIsMountedExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseIsMountedExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React, { useState, useEffect } from "react";
+import { useIsMounted } from "reactuals";
+
+export const Component = () => {
+  const isMounted = useIsMounted();
+  const [data, setData] = useState("No data");
+
+  useEffect(() => {
+    // Simulate an async API call
+    const fetchData = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      if (isMounted()) {
+        setData("Data fetched successfully!");
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      <p>Component Status: {isMounted() ? "Mounted" : "Unmounted"}</p>
+      <p>Data: {data}</p>
+    </div>
+  );
+};
+```

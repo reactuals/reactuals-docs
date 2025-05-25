@@ -1,0 +1,41 @@
+# useClickAndHold()
+
+The `useClickAndHold` hook detects when a user clicks and holds on an element for a specified duration, triggering a callback function. This is useful for implementing features like long-press actions or hold-to-reveal interactions.
+
+### Import
+
+```jsx
+import { useClickAndHold } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { DemoWrapper } from "../demos/DemoWrapper.jsx";
+import { UseClickAndHoldExample } from "../demos/UseClickAndHoldExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseClickAndHoldExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useClickAndHold } from "reactuals";
+import React, { useState } from "react";
+
+export const Component = () => {
+  const [holdCount, setHoldCount] = useState(0);
+
+  useClickAndHold(() => {
+    setHoldCount((prev) => prev + 1);
+  }, 1000); // 1000ms hold duration
+
+  return (
+    <div>
+      <p>Hold Count: {holdCount}</p>
+      <button>Click and Hold Me</button>
+    </div>
+  );
+};
+```

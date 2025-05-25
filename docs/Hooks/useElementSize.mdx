@@ -1,0 +1,49 @@
+# useElementSize()
+
+The `useElementSize` hook tracks the dimensions of a specific DOM element and returns both a ref to attach to the element and its current size, automatically updating when the element or window resizes.
+
+### Import
+
+```jsx
+import { useElementSize } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseElementSizeExample } from "../demos/UseElementSizeExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseElementSizeExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React from "react";
+import { useElementSize } from "reactuals";
+
+export const Component = () => {
+  const [ref, { width, height }] = useElementSize();
+
+  return (
+    <div>
+      <div
+        ref={ref}
+        style={{
+          width: 300,
+          height: 200,
+          backgroundColor: "#f0f0f0",
+          padding: "20px",
+          border: "1px solid #ccc",
+        }}
+      >
+        <p>
+          Element Size: {width}x{height}px
+        </p>
+        <p>This element's dimensions are being tracked!</p>
+      </div>
+    </div>
+  );
+};
+```

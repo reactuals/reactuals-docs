@@ -1,0 +1,38 @@
+# useScrollDirection()
+
+The `useScrollDirection` hook detects the direction of the user’s scroll, returning `"up"` when scrolling up or `"down"` when scrolling down. It’s useful for creating dynamic UI effects, such as hiding or showing navigation bars, adjusting scroll indicators, or triggering animations based on scroll behavior.
+
+### Import
+
+```jsx
+import { useScrollDirection } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseScrollDirectionExample } from "../demos/UseScrollDirectionExample.jsx";
+
+<BrowserOnly>{() => <UseScrollDirectionExample />}</BrowserOnly>
+
+### Usage
+
+```jsx
+import React from "react";
+import { useScrollDirection } from "reactuals";
+
+export const Component = () => {
+  const direction = useScrollDirection();
+
+  return (
+    <div>
+      <header style={{ position: sticky sticky", "sticky top: 0 }}>
+        <p>Scroll Direction: {direction}</p>
+      </header>
+      <div style={{ height: "200vh" }}>
+        <p>Scroll to see direction changes.</p>
+      </div>
+    </div>
+  );
+};
+```

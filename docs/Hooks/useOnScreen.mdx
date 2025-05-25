@@ -1,0 +1,43 @@
+# useOnScreen()
+
+The `useOnScreen` hook detects whether a specified DOM element is visible in the viewport, returning a boolean indicating its intersection status. It uses the Intersection Observer API and supports an optional `rootMargin` for adjusting the observation area. This is useful for lazy loading, triggering animations, or tracking visibility.
+
+### Import
+
+```jsx
+import { useOnScreen } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseOnScreenExample } from "../demos/UseOnScreenExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseOnScreenExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React, { useRef } from "react";
+import { useOnScreen } from "reactuals";
+
+export const Component = () => {
+  const ref = useRef(null);
+  const isVisible = useOnScreen(ref);
+
+  return (
+    <div>
+      <p>Scroll down to see the element enter the viewport.</p>
+      <div style={{ height: "100vh" }}></div>
+      <div
+        ref={ref}
+        style={{ background: isVisible ? "lightgreen" : "lightgray" }}
+      >
+        <p>Element is {isVisible ? "visible" : "not visible"}!</p>
+      </div>
+    </div>
+  );
+};
+```

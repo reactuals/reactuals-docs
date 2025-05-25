@@ -1,0 +1,41 @@
+# useSessionStorage()
+
+The `useSessionStorage` hook synchronizes a React state with `sessionStorage`, allowing data to persist across page refreshes within the same browser session. It’s ideal for storing temporary user preferences, form inputs, or UI states, such as themes or settings, without requiring a backend. The hook handles serialization and deserialization automatically and includes error handling for robust usage.
+
+### Import
+
+```jsx
+import { useSessionStorage } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseSessionStorageExample } from "../demos/UseSessionStorageExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseSessionStorageExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React from "react";
+import { useSessionStorage } from "reactuals";
+
+export const Component = () => {
+  const [value, setValue] = useSessionStorage("name", "");
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Type something..."
+      />
+      <p>Stored Value: {value || "None"}</p>
+    </div>
+  );
+};
+```

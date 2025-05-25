@@ -1,0 +1,45 @@
+# useFavicon()
+
+The `useFavicon` hook dynamically sets the favicon of a webpage by updating the `href` attribute of the `<link rel="icon">` element in the document head. It's useful for changing the favicon based on application state or themes.
+
+### Import
+
+```jsx
+import { useFavicon } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseFaviconExample } from "../demos/UseFaviconExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseFaviconExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React, { useState } from "react";
+import { useFavicon } from "reactuals";
+
+export const Component = () => {
+  const [favicon, setFavicon] = useState("/logo-dark.ico");
+
+  const toggleFavicon = () => {
+    setFavicon(
+      favicon === "/logo-dark.ico" ? "/logo-light.ico" : "/logo-dark.ico"
+    );
+  };
+
+  useFavicon(favicon);
+
+  return (
+    <div>
+      <p>Click the button to toggle the favicon.</p>
+      <button onClick={toggleFavicon}>Toggle Favicon</button>
+      <p>Current favicon: {favicon}</p>
+    </div>
+  );
+};
+```

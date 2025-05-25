@@ -1,0 +1,35 @@
+# useRenderCount()
+
+The `useRenderCount` hook tracks the number of times a component has rendered, returning an incrementing count. It’s useful for debugging performance issues, identifying unnecessary re-renders, or monitoring component lifecycle behavior in development.
+
+### Import
+
+```jsx
+import { useRenderCount } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseRenderCountExample } from "../demos/UseRenderCountExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseRenderCountExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React from "react";
+import { useRenderCount } from "reactuals";
+
+export const Component = () => {
+  const count = useRenderCount();
+
+  return (
+    <div>
+      <p>Component rendered {count} times</p>
+    </div>
+  );
+};
+```

@@ -1,0 +1,41 @@
+# useClickAnywhere()
+
+The `useClickAnywhere` hook detects clicks anywhere on the document and triggers a callback function when a click event occurs, making it useful for tracking user interactions across the entire page.
+
+### Import
+
+```jsx
+import { useClickAnywhere } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseClickAnywhereExample } from "../demos/UseClickAnywhereExample.jsx";
+
+Click anywhere
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseClickAnywhereExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useClickAnywhere } from "reactuals";
+import React from "react";
+
+export const Component = () => {
+  const [count, setCount] = React.useState(0);
+
+  useClickAnywhere(() => {
+    setCount((prevCount) => prevCount + 1);
+  });
+
+  return (
+    <div>
+      <p>Click Count: {count}</p>
+    </div>
+  );
+};
+```

@@ -1,0 +1,46 @@
+# useWindowResize()
+
+The `useWindowResize` hook listens for window resize events and executes a provided handler function whenever the window is resized, making it easy to respond to viewport changes.
+
+### Import
+
+```jsx
+import { useWindowResize } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseWindowResizeExample } from "../demos/UseWindowResizeExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseWindowResizeExample />}
+</BrowserOnly>
+
+```jsx
+import React, { useState } from "react";
+import { useWindowResize } from "reactuals";
+
+export const Component = () => {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useWindowResize(() => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  });
+
+  return (
+    <div>
+      <p>Resize the window to see the dimensions update:</p>
+      <br />
+      <p>Width: {windowSize.width}px</p>
+      <p>Height: {windowSize.height}px</p>
+    </div>
+  );
+};
+```

@@ -1,0 +1,43 @@
+# useInterval()
+
+The `useInterval` hook runs a provided callback function repeatedly at a specified interval (in milliseconds). It allows pausing the interval by setting the delay to `null`. This is useful for creating timers, polling mechanisms, or animations.
+
+### Import
+
+```jsx
+import { useInterval } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseIntervalExample } from "../demos/UseIntervalExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseIntervalExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React, { useState } from "react";
+import { useInterval } from "reactuals";
+
+export const Component = () => {
+  const [count, setCount] = useState(0);
+  const [delay, setDelay] = useState(1000);
+
+  useInterval(() => {
+    setCount(count + 1);
+  }, delay);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setDelay(delay ? null : 1000)}>
+        {delay ? "Pause" : "Resume"}
+      </button>
+    </div>
+  );
+};
+```

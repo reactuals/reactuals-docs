@@ -1,0 +1,43 @@
+# useDocumentTitle()
+
+The `useDocumentTitle` hook dynamically updates the document title when the component mounts or when the title value changes, useful for creating dynamic page titles based on component state.
+
+### Import
+
+```jsx
+import { useDocumentTitle } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseDocumentTitleExample } from "../demos/UseDocumentTitleExample.jsx";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseDocumentTitleExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import React, { useState } from "react";
+import { useDocumentTitle } from "reactuals";
+
+export const Component = () => {
+  const [title, setTitle] = useState("My App");
+
+  useDocumentTitle(title);
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="Enter page title"
+      />
+      <p>Current document title: {title}</p>
+    </div>
+  );
+};
+```
