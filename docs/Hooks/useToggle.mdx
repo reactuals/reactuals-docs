@@ -1,0 +1,41 @@
+# useToggle()
+
+Toggles a boolean state between `true` and `false`. Ideal for managing UI states like modals, dropdowns, or checkboxes.
+
+### Import
+
+```jsx
+import { useToggle } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseToggleExample } from "../demos/UseToggleExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseToggleExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useToggle } from "reactuals";
+
+function Toggle() {
+  const [isOpen, toggle] = useToggle();
+
+  return (
+    <div>
+      <button onClick={toggleDarkMode}>
+        {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+      </button>
+      <div className="mt-4">
+        {isDarkMode
+          ? "Dark mode is enabled. Enjoy the night view!"
+          : "Light mode is enabled. Shine bright!"}
+      </div>
+    </div>
+  );
+}
+```

@@ -1,0 +1,39 @@
+# useNetworkSpeed()
+
+Tracks the device's network speed and connection type using the Network Information API. Ideal for optimizing content delivery or displaying network status in web apps.
+
+### Import
+
+```jsx
+import { useNetworkSpeed } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseNetworkSpeedExample } from "../demos/UseNetworkSpeedExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseNetworkSpeedExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useNetworkSpeed } from "reactuals";
+
+function NetworkSpeed() {
+  const { effectiveType, downlinkMbps } = useNetworkSpeed();
+
+  return (
+   <div>
+        <strong>Connection Type:</strong>{" "}
+        {effectiveType ? effectiveType : "Unavailable"}
+      </div>
+      <div>
+        <strong>Download Speed:</strong>{" "}
+        {downlinkMbps !== null ? `${downlinkMbps} Mbps` : "Unavailable"}
+      </div>
+  );
+}
+```

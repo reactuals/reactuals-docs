@@ -1,0 +1,54 @@
+# useTextSelection()
+
+Tracks the selected text within a specific DOM element or the entire document. Ideal for highlighting text, creating custom copy-paste features, or text annotation tools.
+
+### Import
+
+```jsx
+import { useTextSelection } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseTextSelectionExample } from "../demos/UseTextSelectionExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseTextSelectionExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useRef } from "react";
+import { useTextSelection } from "reactuals";
+
+function TextSelection() {
+  const ref = useRef(null);
+  const { text } = useTextSelection(ref);
+
+  return (
+    <div>
+      <p style={{ fontSize: 18, fontWeight: 600, marginBottom: 10 }}>
+        <span role="img" aria-label="cursor">
+          🖱️
+        </span>{" "}
+        Select any part of this text!
+      </p>
+      <p>
+        The ocean covers 70% of the Earth's surface and is home to a vast array
+        of life forms. Oceans regulate the planet's climate, absorb carbon
+        dioxide, and provide food and livelihoods for billions of people.
+        Beneath the waves lies a world of incredible diversity, from the
+        smallest plankton to the largest whales. Coral reefs, often called the
+        "rainforests of the sea," support more species per unit area than any
+        other marine environment. However, human activities such as overfishing,
+        pollution, and climate change threaten the delicate balance of ocean
+        ecosystems. Protecting our oceans is essential for maintaining
+        biodiversity and ensuring a healthy planet for future generations.
+      </p>
+      {text && <p className="mt-4 text-blue-600">Selected: {text}</p>}
+    </div>
+  );
+}
+```

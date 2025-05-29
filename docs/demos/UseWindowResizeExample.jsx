@@ -17,65 +17,23 @@ export const UseWindowResizeExample = () => {
 
   return (
     <DemoWrapper>
-      <p>Resize the window to see the dimensions update:</p>
-      <br />
-      <div className="size-display">
-        <div className="size-item">
-          <span className="label">Width:</span>
-          <span className="value">{windowSize.width}px</span>
+      <p className="text-lg text-center text-gray-800 mb-4 dark:text-gray-400 ">
+        Resize the window to see the dimensions update:
+      </p>
+      <div className="flex gap-8 bg-gray-50 p-4 rounded-lg border border-gray-200 justify-center">
+        <div className="flex flex-col items-center gap-1">
+          <span className="text-sm text-gray-500 font-medium">Width:</span>
+          <span className="text-2xl font-bold text-blue-600 font-mono">
+            {windowSize.width}px
+          </span>
         </div>
-        <div className="size-item">
-          <span className="label">Height:</span>
-          <span className="value">{windowSize.height}px</span>
+        <div className="flex flex-col items-center gap-1">
+          <span className="text-sm text-gray-500 font-medium">Height:</span>
+          <span className="text-2xl font-bold text-blue-600 font-mono">
+            {windowSize.height}px
+          </span>
         </div>
       </div>
-
-      <style jsx>{`
-        .demo-container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 1rem;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-            sans-serif;
-        }
-
-        p {
-          font-size: 1.1rem;
-          margin: 0;
-          text-align: center;
-          color: #333;
-        }
-
-        .size-display {
-          display: flex;
-          gap: 2rem;
-          background: #f8f9fa;
-          padding: 1rem 2rem;
-          border-radius: 8px;
-          border: 1px solid #e9ecef;
-        }
-
-        .size-item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 0.25rem;
-        }
-
-        .label {
-          font-size: 0.9rem;
-          color: #666;
-          font-weight: 500;
-        }
-
-        .value {
-          font-size: 1.5rem;
-          font-weight: bold;
-          color: #007acc;
-          font-family: "Monaco", "Menlo", monospace;
-        }
-      `}</style>
     </DemoWrapper>
   );
 };

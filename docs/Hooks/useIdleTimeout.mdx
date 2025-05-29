@@ -1,0 +1,34 @@
+# useIdleTimeout()
+
+Detects user inactivity after a specified timeout, returning `true` when idle. Ideal for triggering actions like auto-logout or dimming UI after inactivity.
+
+### Import
+
+```jsx
+import { useIdleTimeout } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseIdleTimeoutExample } from "../demos/UseIdleTimeoutExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseIdleTimeoutExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useIdleTimeout } from "reactuals";
+
+function IdleTimeout() {
+  const isIdle = useIdleTimeout(5000);
+
+  return (
+    <div>
+      <p className="mt-4">{isIdle ? "User is idle" : "User is active"}</p>
+    </div>
+  );
+}
+```

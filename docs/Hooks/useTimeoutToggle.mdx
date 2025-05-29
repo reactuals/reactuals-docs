@@ -1,0 +1,42 @@
+# useTimeoutToggle()
+
+Temporarily sets a boolean to `true` for a specified duration, then reverts to `false`. Ideal for transient UI states like alerts or button highlights.
+
+### Import
+
+```jsx
+import { useTimeoutToggle } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseTimeoutToggleExample } from "../demos/UseTimeoutToggleExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseTimeoutToggleExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useTimeoutToggle } from "reactuals";
+
+export const UseTimeoutToggleExample = () => {
+  const [visible, show] = useTimeoutToggle(3000);
+
+  return (
+    <div>
+      <h3>Show Notification for 3 Seconds</h3>
+      <button onClick={show} className="btn">
+        Show Notification
+      </button>
+      {visible && (
+        <div className="notification">
+          This notification will disappear after 3 seconds!
+        </div>
+      )}
+    </div>
+  );
+};
+```

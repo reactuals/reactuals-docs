@@ -1,0 +1,59 @@
+# useWhyDidYouUpdate()
+
+Logs changes in props that cause a component to re-render, helping debug performance issues. Ideal for identifying unnecessary re-renders in complex components.
+
+### Import
+
+```jsx
+import { useWhyDidYouUpdate } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseWhyDidYouUpdateExample } from "../demos/UseWhyDidYouUpdateExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseWhyDidYouUpdateExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+export const UseWhyDidYouUpdateExample = () => {
+  const [count, setCount] = useState(0);
+  const [text, setText] = useState("Initial");
+
+  return (
+    <div className="p-4">
+      <h3 className="text-lg font-semibold mb-4">useWhyDidYouUpdate Example</h3>
+      <button onClick={() => setCount((c) => c + 1)} className="btn">
+        Increment Count
+      </button>
+      <button
+        onClick={() => setText(text === "Initial" ? "Updated" : "Initial")}
+        className="btn"
+      >
+        Change Text
+      </button>
+      <WhyDidYouUpdate count={count} text={text} />
+      <p className="mt-2 text-sm text-gray-600">
+        Check console for prop change logs.
+      </p>
+    </div>
+  );
+};
+
+import { useWhyDidYouUpdate } from "reactuals";
+
+function WhyDidYouUpdate({ count, text }) {
+  useWhyDidYouUpdate("WhyDidYouUpdate", { count, text });
+
+  return (
+    <div>
+      <p className="mt-4">Count: {count}</p>
+      <p className="mt-2">Text: {text}</p>
+    </div>
+  );
+}
+```

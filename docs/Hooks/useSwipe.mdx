@@ -1,0 +1,41 @@
+# useSwipe()
+
+Detects swipe gestures on a DOM element, returning the swipe direction (left, right, up, down). Ideal for mobile-friendly interfaces like carousels or navigation menus.
+
+### Import
+
+```jsx
+import { useSwipe } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseSwipeExample } from "../demos/UseSwipeExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseSwipeExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useSwipe } from "reactuals";
+
+function Swipe() {
+  const [ref, direction] = useSwipe({ threshold: 50 });
+
+  return (
+    <div
+      ref={ref}
+      className="w-full h-64 bg-gray-200 flex items-center justify-center"
+    >
+      {direction ? (
+        <p className="text-xl font-bold">Swiped {direction}!</p>
+      ) : (
+        <p className="text-xl">Swipe me!</p>
+      )}
+    </div>
+  );
+}
+```

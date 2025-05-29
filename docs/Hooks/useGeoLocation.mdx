@@ -1,0 +1,39 @@
+# useGeoLocation()
+
+Tracks the user’s geolocation (latitude and longitude) using the browser’s Geolocation API, with real-time updates and error handling. Ideal for location-based features like maps or nearby services.
+
+### Import
+
+```jsx
+import { useGeoLocation } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseGeoLocationExample } from "../demos/UseGeoLocationExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseGeoLocationExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useGeoLocation } from "reactuals";
+
+function Example() {
+  const { latitude, longitude, error } = useGeoLocation({
+    enableHighAccuracy: true,
+  });
+
+  if (error) return <div>Error: {error.message}</div>;
+  if (latitude === null || longitude === null) return <div>Loading...</div>;
+
+  return (
+    <div>
+      Latitude: {latitude}, Longitude: {longitude}
+    </div>
+  );
+}
+```

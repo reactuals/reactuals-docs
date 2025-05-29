@@ -1,0 +1,35 @@
+# useTimeout()
+
+Runs a callback function after a specified delay, with automatic cleanup to prevent memory leaks. Ideal for delayed actions like notifications or auto-save.
+
+### Import
+
+```jsx
+import { useTimeout } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseTimeoutExample } from "../demos/UseTimeoutExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseTimeoutExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useState } from "react";
+import { useTimeout } from "reactuals";
+
+function Example() {
+  const [message, setMessage] = useState("");
+
+  useTimeout(() => {
+    setMessage("Action completed!");
+  }, 2000);
+
+  return <div>{message}</div>;
+}
+```

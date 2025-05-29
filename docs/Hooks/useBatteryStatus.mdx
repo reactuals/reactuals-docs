@@ -1,0 +1,41 @@
+# useBatteryStatus()
+
+Tracks the device's battery level and charging status using the Battery Status API. Ideal for displaying battery information in mobile or power-sensitive applications.
+
+### Import
+
+```jsx
+import { useBatteryStatus } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseBatteryStatusExample } from "../demos/UseBatteryStatusExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseBatteryStatusExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useBatteryStatus } from "reactuals";
+
+function BatteryStatus() {
+  const { level, charging } = useBatteryStatus();
+
+  return (
+    <div>
+      {level !== null ? (
+        <p className="mt-4">Battery Level: {(level * 100).toFixed(0)}%</p>
+      ) : (
+        <p className="mt-4">Battery Level: Unavailable</p>
+      )}
+      {charging !== null && (
+        <p className="mt-2">Status: {charging ? "Charging" : "Not Charging"}</p>
+      )}
+    </div>
+  );
+}
+```
