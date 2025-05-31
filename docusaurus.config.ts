@@ -7,8 +7,8 @@ import type * as Preset from "@docusaurus/preset-classic";
 // const reactuals = require("reactuals");
 
 const config: Config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
+  title: "Reactuals",
+  tagline: "Hooks are cool",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -19,8 +19,8 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "reactuals", // Usually your GitHub org/user name.
+  projectName: "reactuals", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -43,6 +43,7 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             "https://github.com/ankitpanchal534/reactuals-docs/tree/main",
+          sidebarCollapsed: false,
         },
         blog: {
           showReadingTime: true,
@@ -107,7 +108,7 @@ const config: Config = {
           items: [
             {
               label: "Hooks",
-              to: "/docs/Hooks/useLocalStorage",
+              to: "/docs/Hooks/useBatteryStatus",
             },
           ],
         },
