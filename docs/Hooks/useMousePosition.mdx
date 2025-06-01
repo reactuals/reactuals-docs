@@ -1,0 +1,30 @@
+# useMousePosition()
+
+Tracks the current position of the mouse cursor on the screen. Ideal for creating interactive UI elements or mouse-based effects in React applications.
+
+### Import
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseMousePositionExample } from "../demos/UseMousePositionExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseMousePositionExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useMousePosition } from "reactuals";
+
+function MouseTracker() {
+  const { x, y } = useMousePosition();
+
+  return (
+    <div className="p-4">
+      <p className="mt-4">
+        Mouse Position: X: {x}, Y: {y}
+      </p>
+    </div>
+  );
+}
+```

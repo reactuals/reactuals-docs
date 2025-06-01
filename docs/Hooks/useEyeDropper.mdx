@@ -1,0 +1,49 @@
+# useEyeDropper()
+
+Accesses the EyeDropper API to pick colors from the screen. Ideal for design tools or color picker features in React applications.
+
+### Import
+
+```jsx
+import { useEyeDropper } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseEyeDropperExample } from "../demos/UseEyeDropperExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseEyeDropperExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useEyeDropper } from "reactuals";
+
+function ColorPicker() {
+  const { pickColor, isSupported, error, pickedColor } = useEyeDropper();
+
+  const handlePick = async () => {
+    const { result } = await pickColor();
+    if (result) {
+      console.log(`Picked color: ${result.sRGBHex}`);
+    }
+  };
+
+  return (
+    <div className="p-4">
+      <button
+        onClick={handlePick}
+        disabled={!isSupported()}
+        className="p-2 bg-blue-500 text-white rounded"
+      >
+        Pick Color
+      </button>
+      {pickedColor && <p className="mt-4"> Picked Color: {pickedColor}</p>}
+      {error && <p className="mt-4 text-red-500">Error: {error.message}</p>}
+    </div>
+  );
+}
+```

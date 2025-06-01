@@ -1,0 +1,40 @@
+# useColorScheme()
+
+Tracks and manages the user's preferred color scheme (light or dark) using the `prefers-color-scheme` media query. Ideal for implementing theme toggling in React applications.
+
+### Import
+
+```jsx
+import { useColorScheme } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseColorSchemeExample } from "../demos/UseColorSchemeExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseColorSchemeExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useColorScheme } from "reactuals";
+
+function ThemeToggle() {
+  const { scheme, toggleScheme } = useColorScheme();
+
+  return (
+    <div className="p-4">
+      <p className="mt-4">Current Theme: {scheme}</p>
+      <button
+        onClick={toggleScheme}
+        className="p-2 bg-blue-500 text-white rounded mt-2"
+      >
+        Toggle Theme
+      </button>
+    </div>
+  );
+}
+```

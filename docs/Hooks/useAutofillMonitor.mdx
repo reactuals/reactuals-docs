@@ -1,0 +1,38 @@
+# useAutofillMonitor()
+
+Detects autofill events on form inputs, select elements, or textareas using the browser's animation event. Ideal for capturing autofilled data to enhance form UX.
+
+### Import
+
+```jsx
+import { useAutofillMonitor } from "reactuals";
+```
+
+### Usage
+
+```jsx
+import React, { useRef } from "react";
+import { useAutofillMonitor } from "reactuals";
+
+function AutofillMonitor() {
+  const inputRef = useRef(null);
+  const autofillData = useAutofillMonitor(inputRef);
+
+  return (
+    <div>
+      <input
+        ref={inputRef}
+        type="text"
+        name="username"
+        placeholder="Enter username"
+        className="p-2 border rounded"
+      />
+      {autofillData && (
+        <p className="mt-4">
+          Autofilled: {autofillData.name} = {autofillData.value}
+        </p>
+      )}
+    </div>
+  );
+}
+```

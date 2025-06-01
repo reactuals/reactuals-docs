@@ -1,0 +1,48 @@
+# useClipboardRead()
+
+Reads text from the clipboard using the Clipboard API. Ideal for applications that need to access clipboard content, such as paste functionality in forms or editors.
+
+### Import
+
+```jsx
+import { useClipboardRead } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseClipboardReadExample } from "../demos/UseClipboardReadExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseClipboardReadExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useClipboardRead } from "reactuals";
+
+function ClipboardReader() {
+  const { readText, error } = useClipboardRead();
+
+  const handleRead = async () => {
+    const text = await readText();
+    if (text) {
+      alert(`Clipboard content: ${text}`);
+    }
+  };
+
+  return (
+    <div className="p-4">
+      <button
+        onClick={handleRead}
+        className="p-2 bg-blue-500 text-white rounded"
+        disabled={!!error}
+      >
+        Read Clipboard
+      </button>
+      {error && <p className="mt-4 text-red-500">Error: {error.message}</p>}
+    </div>
+  );
+}
+```

@@ -1,0 +1,34 @@
+# useInputDevice()
+
+Detects the type of input device (mouse, touch, or keyboard) used by the user. Ideal for adapting UI behavior based on input method in React applications.
+
+### Import
+
+```jsx
+import { useInputDevice } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseInputDeviceExample } from "../demos/UseInputDeviceExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseInputDeviceExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useInputDevice } from "reactuals";
+
+function InputDeviceInfo() {
+  const deviceType = useInputDevice();
+
+  return (
+    <div className="p-4">
+      <p className="mt-4">Current Input Device: {deviceType}</p>
+    </div>
+  );
+}
+```

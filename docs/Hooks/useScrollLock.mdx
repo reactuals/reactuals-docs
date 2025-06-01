@@ -1,0 +1,37 @@
+# useScrollLock()
+
+Locks or unlocks the document body scroll. Ideal for modals, sidebars, or other UI elements that require disabling background scrolling in React applications.
+
+### Import
+
+```jsx
+import { useScrollLock } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseScrollLockExample } from "../demos/UseScrollLockExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseScrollLockExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useScrollLock } from "reactuals";
+
+function ScrollLockDemo() {
+  const { locked, toggle } = useScrollLock();
+
+  return (
+    <div className="p-4">
+      <button onClick={toggle} className="p-2 bg-blue-500 text-white rounded">
+        {locked ? "Unlock Scroll" : "Lock Scroll"}
+      </button>
+      <p className="mt-4">Scroll is {locked ? "locked" : "unlocked"}.</p>
+    </div>
+  );
+}
+```

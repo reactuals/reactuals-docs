@@ -1,0 +1,47 @@
+# useBreakpoint()
+
+Tracks the current breakpoint based on window width using custom breakpoints. Ideal for building responsive layouts in React applications.
+
+### Import
+
+```jsx
+import { useBreakpoint } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseBreakpointExample } from "../demos/UseBreakpointExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseBreakpointExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useBreakpoint } from "reactuals";
+
+const breakpoints = {
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+};
+
+function ResponsiveComponent() {
+  const { breakpoint, isBreakpoint, isAbove, isBelow } =
+    useBreakpoint(breakpoints);
+
+  return (
+    <div className="p-4">
+      <p className="mt-4">Current Breakpoint: {breakpoint || "default"}</p>
+      <p className="mt-2">
+        Is Medium (md)? {isBreakpoint("md") ? "Yes" : "No"}
+      </p>
+      <p className="mt-2">Above Large (lg)? {isAbove("lg") ? "Yes" : "No"}</p>
+      <p className="mt-2">Below Small (sm)? {isBelow("sm") ? "Yes" : "No"}</p>
+    </div>
+  );
+}
+```

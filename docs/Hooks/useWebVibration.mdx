@@ -1,0 +1,45 @@
+# useWebVibration()
+
+Triggers device vibration using the Vibration API. Ideal for providing haptic feedback in games or notifications in React applications.
+
+### Import
+
+```jsx
+import { useWebVibration } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseWebVibrationExample } from "../demos/UseWebVibrationExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseWebVibrationExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useWebVibration } from "reactuals";
+
+function VibrationButton() {
+  const { vibrate, isSupported, error } = useWebVibration();
+
+  const handleVibrate = () => {
+    vibrate([200, 100, 200]);
+  };
+
+  return (
+    <div className="p-4">
+      <button
+        onClick={handleVibrate}
+        disabled={!isSupported}
+        className="p-2 bg-blue-500 text-white rounded"
+      >
+        Vibrate
+      </button>
+      {error && <p className="mt-4 text-red-500">Error: {error.message}</p>}
+    </div>
+  );
+}
+```

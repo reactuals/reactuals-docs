@@ -1,0 +1,52 @@
+# useWebShare()
+
+Enables sharing content via the Web Share API. Ideal for sharing links, text, or files directly to other apps in React applications.
+
+### Import
+
+```jsx
+import { useWebShare } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseWebShareExample } from "../demos/UseWebShareExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseWebShareExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useWebShare } from "reactuals";
+
+function ShareButton() {
+  const { share, isSupported, error } = useWebShare();
+
+  const handleShare = async () => {
+    const success = await share({
+      title: "Reactuals",
+      text: "Check out this awesome library!",
+      url: "https://reactuals.dev",
+    });
+    if (success) {
+      console.log("Shared successfully!");
+    }
+  };
+
+  return (
+    <div className="p-4">
+      <button
+        onClick={handleShare}
+        disabled={!isSupported}
+        className="p-2 bg-blue-500 text-white rounded"
+      >
+        Share Content
+      </button>
+      {error && <p className="mt-4 text-red-500">Error: {error.message}</p>}
+    </div>
+  );
+}
+```

@@ -1,0 +1,37 @@
+# useDeviceType()
+
+Detects the device type (mobile, tablet, or desktop) based on window width. Ideal for responsive design and device-specific UI in React applications.
+
+### Import
+
+```jsx
+import { useDeviceType } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseDeviceTypeExample } from "../demos/UseDeviceTypeExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseDeviceTypeExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useDeviceType } from "reactuals";
+
+function DeviceInfo() {
+  const { deviceType, isMobile, isTab, isDesktop } = useDeviceType();
+
+  return (
+    <div className="p-4">
+      <p className="mt-4">Device Type: {deviceType}</p>
+      <p className="mt-2">Is Mobile? {isMobile ? "Yes" : "No"}</p>
+      <p className="mt-2">Is Tablet? {isTab ? "Yes" : "No"}</p>
+      <p className="mt-2">Is Desktop? {isDesktop ? "Yes" : "No"}</p>
+    </div>
+  );
+}
+```

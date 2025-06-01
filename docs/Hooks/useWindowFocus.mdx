@@ -1,0 +1,60 @@
+# useWindowFocus()
+
+Tracks the focus and visibility state of the browser window. Ideal for pausing/resuming animations, syncing data, or managing user activity in React applications.
+
+### Import
+
+```jsx
+import { useWindowFocus } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseWindowFocusExample } from "../demos/UseWindowFocusExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseWindowFocusExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useWindowFocus } from "reactuals";
+
+function WindowStatus() {
+  const { isFocused, isVisible } = useWindowFocus();
+
+  return (
+    <div className="space-y-3 flex flex-col items-center">
+      <p className="text-lg">
+        Window Status:
+        <span className="font-bold">
+          {isFocused ? "Focused" : "Not Focused"},
+          {isVisible ? "Visible" : "Hidden"}
+        </span>
+      </p>
+      <div className="flex flex-wrap gap-3">
+        <span
+          className={`px-3 py-1 rounded-full text-sm ${
+            isFocused
+              ? "bg-green-500 text-white"
+              : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300"
+          }`}
+        >
+          Focus: {isFocused ? "Active" : "Inactive"}
+        </span>
+        <span
+          className={`px-3 py-1 rounded-full text-sm ${
+            isVisible
+              ? "bg-green-500 text-white"
+              : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300"
+          }`}
+        >
+          Visibility: {isVisible ? "Active" : "Inactive"}
+        </span>
+      </div>
+    </div>
+  );
+}
+```

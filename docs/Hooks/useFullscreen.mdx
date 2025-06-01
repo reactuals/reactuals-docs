@@ -1,0 +1,44 @@
+# useFullscreen()
+
+Manages fullscreen mode for a specific HTML element. Ideal for creating immersive experiences like video players or presentations in React applications.
+
+### Import
+
+```jsx
+import { useFullscreen } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseFullscreenExample } from "../demos/UseFullscreenExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseFullscreenExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useFullscreen } from "reactuals";
+import { useRef } from "react";
+
+function FullscreenComponent() {
+  const ref = useRef(null);
+  const { isFullscreen, enter, exit } = useFullscreen(ref);
+
+  return (
+    <div>
+      <div ref={ref}>
+        <p className="text-lg font-medium">
+          {isFullscreen ? "Fullscreen Active!" : "Content Area"}
+        </p>
+        <button onClick={isFullscreen ? exit : enter} className="btn">
+          {isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
+        </button>
+      </div>
+      <p>Click the button to toggle fullscreen mode for the content area.</p>
+    </div>
+  );
+}
+```
