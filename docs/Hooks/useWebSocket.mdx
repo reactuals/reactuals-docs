@@ -1,0 +1,45 @@
+# useWebSocket()
+
+Manages a WebSocket connection to receive and send messages. Ideal for real-time communication in chat apps or live updates in React applications.
+
+### Import
+
+```jsx
+import { useWebSocket } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseWebSocketExample } from "../demos/UseWebSocketExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseWebSocketExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useWebSocket } from "reactuals";
+
+function WebSocketChat() {
+  const { data, error, sendMessage } = useWebSocket("wss://echo.websocket.org");
+
+  const handleSend = () => {
+    sendMessage("Hello, WebSocket!");
+  };
+
+  return (
+    <div className="p-4">
+      <button
+        onClick={handleSend}
+        className="p-2 bg-blue-500 text-white rounded"
+      >
+        Send Message
+      </button>
+      {data && <p className="mt-4">Received: {data}</p>}
+      {error && <p className="mt-4 text-red-500">Error occurred</p>}
+    </div>
+  );
+}
+```

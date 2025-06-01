@@ -1,0 +1,61 @@
+# usePictureInPicture()
+
+Manages Document Picture-in-Picture mode for displaying content in a floating window. Ideal for video players or detached UI elements in React applications.
+
+### Import
+
+```jsx
+import { usePictureInPicture } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UsePictureInPictureExample } from "../demos/UsePictureInPictureExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UsePictureInPictureExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { usePictureInPicture } from "reactuals";
+import { useRef } from "react";
+
+function PictureInPictureDemo() {
+  const contentRef = useRef(null);
+  const { openPictureInPicture, closePictureInPicture, isActive, error } =
+    usePictureInPicture();
+
+  const handleOpen = () => {
+    if (contentRef.current) {
+      openPictureInPicture(contentRef.current);
+    }
+  };
+
+  return (
+    <div className="space-y-6">
+      <div>
+        <video
+          ref={videoRef}
+          className="w-full h-64 object-cover bg-black"
+          controls
+          src="https://www.w3schools.com/html/mov_bbb.mp4"
+          poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+        />
+      </div>
+      <div className="flex justify-center gap-4">
+        <button onClick={isActive ? closePictureInPicture : handleOpen}>
+          {isActive ? "Close PiP" : "Open PiP"}
+        </button>
+      </div>
+      {error && (
+        <div className="flex justify-center">
+          <p>Error: {error.message}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+```

@@ -1,0 +1,97 @@
+# useWebBluetooth()
+
+Connects to and manages Bluetooth devices using the Web Bluetooth API. Ideal for interacting with Bluetooth-enabled hardware in React applications.
+
+### Import
+
+```jsx
+import { useWebBluetooth } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UseWebBluetoothExample } from "../demos/UseWebBluetoothExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UseWebBluetoothExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { useWebBluetooth } from "reactuals";
+
+function BluetoothConnect() {
+  const { connect, disconnect, device, isSupported, error } = useWebBluetooth();
+
+  const handleConnect = async () => {
+    await connect({ acceptAllDevices: true });
+  };
+
+  return (
+    <div className="p-8 max-w-xl mx-auto bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-2xl shadow-2xl text-gray-900 dark:text-gray-100 border border-blue-100 dark:border-gray-700">
+      <div className="flex items-center gap-3 mb-6">
+        <BluetoothIcon className="text-blue-500 dark:text-blue-400" />
+        <h3 className="text-2xl font-bold tracking-tight">
+          Web Bluetooth Demo
+        </h3>
+      </div>
+      <div className="space-y-6">
+        <div className="flex flex-wrap gap-4">
+          <button
+            onClick={handleConnect}
+            disabled={!isSupported}
+            className="px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow hover:from-blue-600 hover:to-blue-700 transition disabled:bg-gray-300 disabled:cursor-not-allowed"
+          >
+            <span className="inline-flex items-center gap-2">
+              <ConnectIcon className="inline text-white" />
+              Connect Bluetooth
+            </span>
+          </button>
+          {device && (
+            <button
+              onClick={disconnect}
+              className="px-6 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-lg shadow hover:from-red-600 hover:to-red-700 transition"
+            >
+              <span className="inline-flex items-center gap-2">
+                <DisconnectIcon className="inline text-white" />
+                Disconnect
+              </span>
+            </button>
+          )}
+        </div>
+        {status && (
+          <div
+            className={`rounded-lg px-4 py-3 text-lg font-medium shadow transition ${
+              status.includes("successfully")
+                ? "bg-green-50 text-green-700 border border-green-200"
+                : "bg-red-50 text-red-700 border border-red-200"
+            }`}
+          >
+            {status}
+          </div>
+        )}
+        {error && (
+          <div className="rounded-lg px-4 py-3 text-lg font-medium bg-red-50 text-red-700 border border-red-200 shadow">
+            Error: {error.message}
+          </div>
+        )}
+        {device && (
+          <div className="rounded-lg px-4 py-3 bg-blue-50 dark:bg-blue-900/30 text-blue-900 dark:text-blue-200 border border-blue-200 dark:border-blue-700 font-medium shadow flex items-center gap-2">
+            <ConnectedDeviceIcon className="text-blue-500 dark:text-blue-300" />
+            Connected to: <span className="font-bold ml-1">
+              {device.name || "Unnamed Device"}
+            </span>
+          </div>
+        )}
+        <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mt-2">
+          <InfoIcon className="text-blue-400" />
+          Click to connect to a Bluetooth device. Supported in Chrome/Edge on secure
+          contexts (HTTPS).
+        </div>
+      </div>
+    </div>
+  );
+}
+```

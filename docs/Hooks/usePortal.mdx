@@ -1,0 +1,36 @@
+# usePortal()
+
+Creates and manages a DOM portal for rendering content outside the component hierarchy. Ideal for modals, tooltips, or overlays in React applications.
+
+### Import
+
+```jsx
+import { usePortal } from "reactuals";
+```
+
+### Demo
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { UsePortalExample } from "../demos/UsePortalExample";
+
+<BrowserOnly fallback={<div>Loading...</div>}>
+  {() => <UsePortalExample />}
+</BrowserOnly>
+
+### Usage
+
+```jsx
+import { usePortal } from "reactuals";
+import { createPortal } from "react-dom";
+
+function PortalDemo() {
+  const portalRoot = usePortal("my-portal");
+
+  return createPortal(
+    <div className="fixed top-10 left-10 bg-blue-500 text-white p-4 rounded">
+      This is rendered in a portal!
+    </div>,
+    portalRoot
+  );
+}
+```
