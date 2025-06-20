@@ -11,7 +11,7 @@ export const UseFocusTrapExample = () => {
 
   return (
     <DemoWrapper>
-      <div className="flex flex-col dark:text-black items-center gap-4">
+      <div className="flex flex-col text-black items-center gap-4">
         <div
           ref={modalRef}
           className="p-6 bg-gray-100 rounded-lg shadow-md flex flex-col gap-3 max-w-sm w-full"

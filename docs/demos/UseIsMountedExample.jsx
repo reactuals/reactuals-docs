@@ -24,7 +24,7 @@ export const UseIsMountedExample = () => {
     }, []);
 
     return (
-      <div className="p-4 bg-gray-100 rounded-lg shadow-md flex flex-col gap-2 max-w-sm w-full">
+      <div className="p-4 bg-gray-100  text-black rounded-lg shadow-md flex flex-col gap-2 max-w-sm w-full">
         <p className="text-lg text-center">
           Component Status:{" "}
           <span className="font-mono">

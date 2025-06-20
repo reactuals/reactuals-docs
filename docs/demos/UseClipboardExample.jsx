@@ -15,7 +15,7 @@ export const UseClipboardExample = () => {
 
   return (
     <DemoWrapper>
-      <p className="text-lg text-center text-gray-700 mb-6">
+      <p className="text-lg text-center  mb-6">
         Enter text or select a sample to copy to clipboard:
       </p>
 

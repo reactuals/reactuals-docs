@@ -13,13 +13,11 @@ export const UseOnlineStatusExample = () => {
         </p>
 
         <div
-          className={`p-4 rounded-lg content-center shadow-md w-full flex items-center justify-center gap-2 ${
+          className={`p-4 rounded-lg content-center text-black shadow-md w-full flex items-center justify-center gap-2 ${
             online ? "bg-green-100" : "bg-red-100"
           }`}
         >
-          <span className="text-base dark:text-black font-medium">
-            Network Status:{" "}
-          </span>
+          <span className="text-base  font-medium">Network Status: </span>
           <span
             className={`w-3 h-3 rounded-full ${
               online ? "bg-green-500" : "bg-red-500"

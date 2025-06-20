@@ -9,7 +9,7 @@ export const UseDebounceExample = () => {
   return (
     <DemoWrapper>
       <div className="flex flex-col items-center gap-6 font-sans max-w-lg mx-auto">
-        <p className="text-base text-center text-gray-800 dark:text-gray-200">
+        <p className="text-base text-center ">
           Type in the input below to see debouncing in action (500ms delay):
         </p>
 

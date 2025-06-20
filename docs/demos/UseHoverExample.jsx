@@ -14,7 +14,7 @@ export const UseHoverExample = () => {
             hovered ? "bg-blue-200" : "bg-gray-200"
           }`}
         >
-          <span className="text-lg font-medium">Hover me!</span>
+          <span className="text-lg font-medium text-black">Hover me!</span>
         </div>
         <p className="text-base text-center">
           Hover state:{" "}

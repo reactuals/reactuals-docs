@@ -3,7 +3,7 @@ import { useToggle } from "reactuals";
 import { DemoWrapper } from "./DemoWrapper";
 
 export const UseToggleExample = () => {
-  const [isDarkMode, toggleDarkMode] = useToggle(false);
+  const [isActive, toggleDarkMode] = useToggle(false);
 
   // Example illustration images (public domain)
   const lightImg =
@@ -12,30 +12,33 @@ export const UseToggleExample = () => {
     "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f319.png"; // Crescent moon emoji
 
   return (
-    <DemoWrapper
-      className={`p-4 ${
-        isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"
-      }`}
-    >
-      <div className="flex items-center justify-center mb-4">
-        <img
-          src={isDarkMode ? darkImg : lightImg}
-          alt={isDarkMode ? "Dark mode" : "Light mode"}
-          className="w-16 h-16"
-        />
-      </div>
-      <button
-        onClick={toggleDarkMode}
-        className={`px-4 py-2 rounded-lg transition-colors ${
-          isDarkMode ? "bg-yellow-400 text-black" : "bg-gray-800 text-white"
+    <DemoWrapper>
+      <div
+        className={`p-4 ${
+          isActive ? "bg-gray-900 text-white" : "bg-yellow-200 text-black"
         }`}
       >
-        {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-      </button>
-      <div className="mt-4">
-        {isDarkMode
-          ? "Dark mode is enabled. Enjoy the night view!"
-          : "Light mode is enabled. Shine bright!"}
+        <div className="flex items-center justify-center mb-4">
+          <img
+            src={isActive ? darkImg : lightImg}
+            alt={isActive ? "Dark mode" : "Light mode"}
+            className="w-16 h-16"
+          />
+        </div>
+        <button
+          onClick={toggleDarkMode}
+          className={`px-4 py-2 rounded-lg transition-colors ${
+            isActive ? "bg-yellow-400 text-black" : "bg-gray-800 text-white"
+          }`}
+        >
+          {isActive ? "Active Lights" : "Inactive Lights"}
+        </button>
+
+        <div className="mt-4">
+          {!isActive
+            ? "Lights enabled. Shine bright!"
+            : "Light disabled. Enjoy the night view!"}
+        </div>
       </div>
     </DemoWrapper>
   );

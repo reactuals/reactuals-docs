@@ -8,12 +8,13 @@ import Heading from "@theme/Heading";
 
 import styles from "./index.module.css";
 import Head from "@docusaurus/Head";
+import ReactualsHero from "./ReactualsHero";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <header className={clsx("hero hero--primary", styles.heroBanner)}>
+    <header>
       <Head>
         <meta
           name="google-site-verification"
@@ -79,7 +80,7 @@ function HomepageHeader() {
           }}
         />
       </Head>
-      <div className="container">
+      {/* <div className="container">
         <Heading as="h1" className="hero__title">
           reactuals
         </Heading>
@@ -92,7 +93,7 @@ function HomepageHeader() {
             📜 Read Docs
           </Link>
         </div>
-      </div>
+      </div> */}
     </header>
   );
 }
@@ -112,7 +113,8 @@ export default function Home(): ReactNode {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+        {/* <HomepageFeatures /> */}
+        <ReactualsHero />
       </main>
     </Layout>
   );

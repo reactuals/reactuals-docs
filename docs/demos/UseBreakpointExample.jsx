@@ -1,5 +1,5 @@
 import React from "react";
-import { useBreakpoint } from "reactuals";
+import { useBreakpoint, useColorScheme } from "reactuals";
 import { DemoWrapper } from "./DemoWrapper";
 
 const breakpoints = {
@@ -12,6 +12,7 @@ const breakpoints = {
 export function UseBreakpointExample() {
   const { breakpoint, isBreakpoint, isAbove, isBelow } =
     useBreakpoint(breakpoints);
+  const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   const getMessage = () => {
     if (isBreakpoint("sm"))
@@ -27,10 +28,10 @@ export function UseBreakpointExample() {
   return (
     <DemoWrapper>
       <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-        <p style={{ fontSize: "16px", color: "#333" }}>
+        <p style={{ fontSize: "16px" }} className="dark:text-white">
           Current Breakpoint: <strong>{breakpoint || "default"}</strong>
         </p>
-        <p style={{ fontSize: "16px", color: "#333" }}>{getMessage()}</p>
+        <p style={{ fontSize: "16px" }}>{getMessage()}</p>
         <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
           <div
             style={{

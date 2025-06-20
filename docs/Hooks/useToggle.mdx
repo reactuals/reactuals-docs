@@ -23,17 +23,17 @@ import { UseToggleExample } from "../demos/UseToggleExample";
 import { useToggle } from "reactuals";
 
 function Toggle() {
-  const [isOpen, toggle] = useToggle();
+  const [isActive, toggle] = useToggle();
 
   return (
     <div>
       <button onClick={toggleDarkMode}>
-        {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+        {isActive ? "Active Lights" : "Inactive Lights"}
       </button>
       <div className="mt-4">
-        {isDarkMode
-          ? "Dark mode is enabled. Enjoy the night view!"
-          : "Light mode is enabled. Shine bright!"}
+        {isActive
+          ? "Lights enabled. Shine bright!"
+          : "Light disabled. Enjoy the night view!"}
       </div>
     </div>
   );

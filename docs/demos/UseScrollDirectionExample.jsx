@@ -1,9 +1,8 @@
-import React from "react";
-import { useScrollPosition } from "reactuals";
+import { useScrollDirection } from "reactuals";
 import { DemoWrapper } from "./DemoWrapper";
 
 export const UseScrollDirectionExample = () => {
-  const scrollY = useScrollPosition();
+  const direction = useScrollDirection();
   const showButton = scrollY > 400;
 
   const scrollToTop = () => {
@@ -35,18 +34,16 @@ export const UseScrollDirectionExample = () => {
           />
         </svg>
       </button>
-      <div className="flex fixed top-100 flex-col items-center gap-4 max-w-2xl w-full">
+      <div className="flex  top-0 flex-col items-center gap-4 max-w-2xl w-full relative">
         <p className="text-lg text-center">
-          Scroll down past 400px to show the "Back to Top" button, then click it
-          to return to the top.
+          Scroll down 400px to show the "Back to Top" button, then click it to
+          return to the top.
         </p>
-        <div className="p-4 bg-gray-100 rounded-lg shadow-md w-full">
-          <p className="text-base text-center">
-            Scroll Position:{" "}
-            <span className="font-mono">{Math.round(scrollY)}px</span>
-          </p>
+        <div className="p-4 pt-6 bg-gray-100 rounded-lg shadow-md w-full text-black fixed top-14 left-1/2 transform -translate-x-1/2 z-20">
+          <p className="text-xl text-center">Scrolling to</p>
+          <h1 className="leading-1">{direction}</h1>
         </div>
-        <div className="h-[200vh] flex flex-col gap-4">
+        <div className="h-[200vh] flex flex-col gap-4 text-black">
           {Array.from({ length: 20 }).map((_, index) => (
             <div key={index} className="p-4 bg-gray-100 rounded-lg border">
               <p>Content Section {index + 1}</p>

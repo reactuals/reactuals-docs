@@ -18,7 +18,7 @@ export function UseWebSocketExample() {
 
   return (
     <DemoWrapper>
-      <div className="p-6 max-w-xl mx-auto  dark:bg-gray-800 rounded-lg  text-gray-900 dark:text-gray-100">
+      <div className="p-6 max-w-xl mx-auto  dark:bg-gray-800 rounded-lg  ">
         <h3 className="text-xl font-semibold mb-4">WebSocket Demo</h3>
         <div className="space-y-4">
           <div className="flex gap-2">

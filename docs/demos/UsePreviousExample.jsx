@@ -20,7 +20,7 @@ export const UsePreviousExample = () => {
           placeholder="Search..."
           className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        <div className="p-4 bg-gray-100 rounded-lg shadow-md w-full flex flex-col gap-2">
+        <div className="p-4 bg-gray-100 rounded-lg shadow-md w-full flex flex-col gap-2 text-black">
           <p className="text-base text-center">
             Current Query: <span className="font-mono">{query || "None"}</span>
           </p>

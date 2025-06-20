@@ -9,10 +9,10 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "Reactuals",
   tagline: "Hooks are cool",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon.png",
 
   // Set the production url of your site here
-  url: "https://your-docusaurus-site.example.com",
+  url: "https://reactuals.vercel.app",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -104,46 +104,153 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "Documentation",
           items: [
             {
-              label: "Hooks",
-              to: "/docs/Hooks/useBatteryStatus",
+              label: "Getting Started",
+              to: "/docs/intro",
+            },
+            {
+              label: "Installation",
+              to: "/docs/intro#-installation",
+            },
+            {
+              label: "All Hooks",
+              to: "/docs/hooks",
+            },
+            {
+              label: "API Reference",
+              to: "/docs/api",
             },
           ],
         },
-        // {
-        //   title: "Community",
-        //   items: [
-        //     {
-        //       label: "Stack Overflow",
-        //       href: "https://stackoverflow.com/questions/tagged/docusaurus",
-        //     },
-        //     {
-        //       label: "Discord",
-        //       href: "https://discordapp.com/invite/docusaurus",
-        //     },
-        //     {
-        //       label: "X",
-        //       href: "https://x.com/docusaurus",
-        //     },
-        //   ],
-        // },
+
         {
-          title: "More",
+          title: "Popular Hooks",
           items: [
-            // {
-            //   label: "Blog",
-            //   to: "/blog",
-            // },
+            {
+              label: "useBatteryStatus",
+              to: "/docs/hooks/useBatteryStatus",
+            },
+            {
+              label: "useLocalStorage",
+              to: "/docs/hooks/useLocalStorage",
+            },
+            {
+              label: "useDebounce",
+              to: "/docs/hooks/useDebounce",
+            },
+            {
+              label: "useToggle",
+              to: "/docs/hooks/useToggle",
+            },
+            {
+              label: "useOnClickOutside",
+              to: "/docs/hooks/useOnClickOutside",
+            },
+            {
+              label: "useMediaQuery",
+              to: "/docs/hooks/useMediaQuery",
+            },
+            {
+              label: "useGeoLocation",
+              to: "/docs/hooks/useGeoLocation",
+            },
+            {
+              label: "useNetworkSpeed",
+              to: "/docs/hooks/useNetworkSpeed",
+            },
+          ],
+        },
+        {
+          title: "Essential Hooks",
+          items: [
+            {
+              label: "useClipboard",
+              to: "/docs/hooks/useClipboard",
+            },
+            {
+              label: "useScrollPosition",
+              to: "/docs/hooks/useScrollPosition",
+            },
+            {
+              label: "useWindowResize",
+              to: "/docs/hooks/useWindowResize",
+            },
+            {
+              label: "useKeyPress",
+              to: "/docs/hooks/useKeyPress",
+            },
+            {
+              label: "useOnScreen",
+              to: "/docs/hooks/useOnScreen",
+            },
+            {
+              label: "useInterval",
+              to: "/docs/hooks/useInterval",
+            },
+            {
+              label: "useTimeout",
+              to: "/docs/hooks/useTimeout",
+            },
+          ],
+        },
+        {
+          title: "Community",
+          items: [
             {
               label: "GitHub",
               href: "https://github.com/ankitpanchal534/reactuals",
             },
+            {
+              label: "Issues & Bugs",
+              href: "https://github.com/ankitpanchal534/reactuals/issues",
+            },
+            {
+              label: "Feature Requests",
+              href: "https://github.com/ankitpanchal534/reactuals/issues/new?template=feature_request.md",
+            },
+            {
+              label: "Stack Overflow",
+              href: "https://stackoverflow.com/questions/tagged/reactuals",
+            },
+          ],
+        },
+        {
+          title: "Resources",
+          items: [
+            {
+              label: "NPM Package",
+              href: "https://www.npmjs.com/package/reactuals",
+            },
+            {
+              label: "Bundle Analyzer",
+              href: "https://bundlephobia.com/package/reactuals",
+            },
+            {
+              label: "Sponsor",
+              href: "https://github.com/sponsors/ankitpanchal534",
+            },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} reactuals, Inc. Built with Docusaurus.`,
+      copyright: `
+    <div style="display: flex; flex-direction: column; gap: 12px; text-align: center;">
+      <div>
+        Copyright © ${new Date().getFullYear()} Reactuals. Built with ❤️ for the React community.
+      </div>
+      <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; font-size: 14px; opacity: 0.8;">
+        <span>📦 55+ Hooks</span>
+        <span>⚡ 5.6kb Gzipped</span>
+        <span>🔷 TypeScript First</span>
+        <span>🚀 Production Ready</span>
+        <span>📱 Mobile Friendly</span>
+      </div>
+      <div style="font-size: 12px; opacity: 0.6; margin-top: 8px;">
+        Built with <a href="https://docusaurus.io/" target="_blank" rel="noopener noreferrer" style="color: #61dafb;">Docusaurus</a>
+      </div>
+    </div>
+  `,
     },
     prism: {
       theme: prismThemes.github,

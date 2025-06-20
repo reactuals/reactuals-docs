@@ -17,7 +17,7 @@ export const UseMediaQueryExample = () => {
           <span className="font-mono">{isLargeScreen ? "Grid" : "List"}</span>
         </p>
         <div
-          className={`w-full p-4 bg-gray-100 rounded-lg shadow-md ${
+          className={`w-full p-4 bg-gray-100 rounded-lg shadow-md text-black ${
             isLargeScreen ? "grid grid-cols-3 gap-4" : "flex flex-col gap-2"
           }`}
         >

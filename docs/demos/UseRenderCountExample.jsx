@@ -9,12 +9,12 @@ export const UseRenderCountExample = () => {
 
   return (
     <DemoWrapper>
-      <div className="flex flex-col  items-center gap-4 max-w-sm w-full">
+      <div className="flex flex-col  items-center gap-4 max-w-sm w-full ">
         <p className="text-lg text-center ">
           Interact with the input or toggle to see the render count increase.
         </p>
-        <div className="p-4 bg-gray-100 rounded-lg shadow-md w-full flex flex-col gap-2">
-          <p className="text-base text-center dark:text-black">
+        <div className="p-4 bg-gray-100 rounded-lg shadow-md w-full flex flex-col gap-2 ">
+          <p className="text-base text-center text-black">
             Render Count: <span className="font-mono">{renderCount}</span>
           </p>
         </div>
