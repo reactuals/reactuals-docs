@@ -9,7 +9,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "Reactuals",
   tagline: "Hooks are cool",
-  favicon: "img/favicon.png",
+  favicon: "img/favicon.ico",
 
   // Set the production url of your site here
   url: "https://reactuals.vercel.app",
@@ -41,25 +41,24 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/ankitpanchal534/reactuals-docs/tree/main",
+          editUrl: "https://github.com/reactuals/reactuals-docs/tree/main",
           sidebarCollapsed: false,
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ["rss", "atom"],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-          // Useful options to enforce blogging best practices
-          onInlineTags: "warn",
-          onInlineAuthors: "warn",
-          onUntruncatedBlogPosts: "warn",
-        },
+        // blog: {
+        //   showReadingTime: true,
+        //   feedOptions: {
+        //     type: ["rss", "atom"],
+        //     xslt: true,
+        //   },
+        //   // Please change this to your repo.
+        //   // Remove this to remove the "edit this page" links.
+        //   editUrl:
+        //     "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+        //   // Useful options to enforce blogging best practices
+        //   onInlineTags: "warn",
+        //   onInlineAuthors: "warn",
+        //   onUntruncatedBlogPosts: "warn",
+        // },
         theme: {
           customCss: "./src/css/custom.css",
         },
@@ -94,7 +93,7 @@ const config: Config = {
         },
         // { to: "/blog", label: "Blog", position: "left" },
         {
-          href: "https://github.com/ankitpanchal534/reactuals",
+          href: "https://github.com/reactuals/reactuals-docs",
           label: "GitHub",
           position: "right",
         },
@@ -114,14 +113,6 @@ const config: Config = {
               label: "Installation",
               to: "/docs/intro#-installation",
             },
-            {
-              label: "All Hooks",
-              to: "/docs/hooks",
-            },
-            {
-              label: "API Reference",
-              to: "/docs/api",
-            },
           ],
         },
 
@@ -130,35 +121,35 @@ const config: Config = {
           items: [
             {
               label: "useBatteryStatus",
-              to: "/docs/hooks/useBatteryStatus",
+              to: "/docs/Hooks/useBatteryStatus",
             },
             {
               label: "useLocalStorage",
-              to: "/docs/hooks/useLocalStorage",
+              to: "/docs/Hooks/useLocalStorage",
             },
             {
               label: "useDebounce",
-              to: "/docs/hooks/useDebounce",
+              to: "/docs/Hooks/useDebounce",
             },
             {
               label: "useToggle",
-              to: "/docs/hooks/useToggle",
+              to: "/docs/Hooks/useToggle",
             },
             {
               label: "useOnClickOutside",
-              to: "/docs/hooks/useOnClickOutside",
+              to: "/docs/Hooks/useOnClickOutside",
             },
             {
               label: "useMediaQuery",
-              to: "/docs/hooks/useMediaQuery",
+              to: "/docs/Hooks/useMediaQuery",
             },
             {
               label: "useGeoLocation",
-              to: "/docs/hooks/useGeoLocation",
+              to: "/docs/Hooks/useGeoLocation",
             },
             {
               label: "useNetworkSpeed",
-              to: "/docs/hooks/useNetworkSpeed",
+              to: "/docs/Hooks/useNetworkSpeed",
             },
           ],
         },
@@ -167,31 +158,31 @@ const config: Config = {
           items: [
             {
               label: "useClipboard",
-              to: "/docs/hooks/useClipboard",
+              to: "/docs/Hooks/useClipboard",
             },
             {
               label: "useScrollPosition",
-              to: "/docs/hooks/useScrollPosition",
+              to: "/docs/Hooks/useScrollPosition",
             },
             {
               label: "useWindowResize",
-              to: "/docs/hooks/useWindowResize",
+              to: "/docs/Hooks/useWindowResize",
             },
             {
               label: "useKeyPress",
-              to: "/docs/hooks/useKeyPress",
+              to: "/docs/Hooks/useKeyPress",
             },
             {
               label: "useOnScreen",
-              to: "/docs/hooks/useOnScreen",
+              to: "/docs/Hooks/useOnScreen",
             },
             {
               label: "useInterval",
-              to: "/docs/hooks/useInterval",
+              to: "/docs/Hooks/useInterval",
             },
             {
               label: "useTimeout",
-              to: "/docs/hooks/useTimeout",
+              to: "/docs/Hooks/useTimeout",
             },
           ],
         },
@@ -200,15 +191,19 @@ const config: Config = {
           items: [
             {
               label: "GitHub",
-              href: "https://github.com/ankitpanchal534/reactuals",
+              href: "https://github.com/reactuals/reactuals",
             },
             {
-              label: "Issues & Bugs",
-              href: "https://github.com/ankitpanchal534/reactuals/issues",
+              label: "Issues & Bugs in Docs",
+              href: "https://github.com/reactuals/reactuals-docs/issues",
+            },
+            {
+              label: "Issues & Bugs in Hooks",
+              href: "https://github.com/reactuals/reactuals/issues",
             },
             {
               label: "Feature Requests",
-              href: "https://github.com/ankitpanchal534/reactuals/issues/new?template=feature_request.md",
+              href: "https://github.com/reactuals/reactuals/issues/new?template=feature_request.md",
             },
             {
               label: "Stack Overflow",
@@ -234,8 +229,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `
-    <div style="display: flex; flex-direction: column; gap: 12px; text-align: center;">
+      copyright: `<div style="display: flex; flex-direction: column; gap: 12px; text-align: center;">
       <div>
         Copyright © ${new Date().getFullYear()} Reactuals. Built with ❤️ for the React community.
       </div>
@@ -249,8 +243,7 @@ const config: Config = {
       <div style="font-size: 12px; opacity: 0.6; margin-top: 8px;">
         Built with <a href="https://docusaurus.io/" target="_blank" rel="noopener noreferrer" style="color: #61dafb;">Docusaurus</a>
       </div>
-    </div>
-  `,
+    </div>`,
     },
     prism: {
       theme: prismThemes.github,
